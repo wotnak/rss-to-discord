@@ -14,7 +14,7 @@ jobs:
           script: |
             core.setOutput('cache-key', new Date().valueOf())
       - name: Retrieve cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ./slackfeedbot-cache
           key: feed-cache-${{ steps.generate-key.outputs.cache-key }}
