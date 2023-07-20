@@ -22,7 +22,7 @@ jobs:
                 "author": {
                   "name": "Drupal Change Records"
                 },
-                "title": "${{on.rss.outputs.title}}",
+                "title": ${{toJSON(on.rss.outputs.title)}},
                 "url": "${{on.rss.outputs.link}}",
                 "footer": {
                   "text": "${{on.rss.outputs.pubDate}}"
