@@ -11,11 +11,16 @@ jobs:
       - name: Discord notification
         uses: Ilshidur/action-discord@master
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_DRUPAL_CHANGE_RECORDS }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_DRUPAL }}
           DISCORD_EMBEDS: '[
               {
+                "author": {
+                  "name": "Drupal Change Records"
+                },
                 "title": "${{on.rss.outputs.title}}",
                 "url": "${{on.rss.outputs.link}}",
-                "description": "${{on.rss.outputs.description}}"
+                "footer": {
+                  "text": "${{on.rss.outputs.pubDate}}"
+                }
               }
             ]'
