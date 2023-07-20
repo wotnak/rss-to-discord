@@ -8,6 +8,11 @@ jobs:
     name: Send a message to discord
     runs-on: ubuntu-latest
     steps:
+      - name: Print Outputs
+        run: |
+          echo "title: ${{on.rss.outputs.title}}"
+          echo "link: ${{on.rss.outputs.link}}"
+          echo "pubDate: ${{on.rss.outputs.pubDate}}"
       - name: Discord notification
         uses: Ilshidur/action-discord@master
         env:
