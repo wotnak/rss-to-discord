@@ -2,6 +2,12 @@ on:
   rss:
     url:
       - https://www.drupal.org/changes/drupal/rss.xml
+    config:
+      filterScript: |
+        if (item.pubDate) {
+          const date = new Date(item.pubDate);
+          return date > new Date('Wed, 29 Jan 2025 23:59:59 +0000');
+        }
 
 jobs:
   discord:
